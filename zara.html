@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Top-up - Free Fire Style</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+        body {
+            font-family: 'Bebas Neue', sans-serif;
+            background-color: #000;
+            color: #fff;
+            background-image: url('file:///C:/Users/lenovo/Downloads/diamond%20topup%20site/Free%20Fire%201%20Vs%201%20Custom%20Thumbnail.jpg'); /* Free Fire themed background */
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            text-align: center;
+}
+                .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            color: #ffcc00;
+            font-size: 3em;
+            text-shadow: 2px 2px #ff0000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            color: #f1f1f1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        input[type="text"], input[type="radio"] {
+            padding: 10px;
+            border: 2px solid #ffcc00;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: #ff3300;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px #ffcc00, inset 0 0 5px #fff;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ffcc00, inset 0 0 10px #fff;
+        }
+
+        #qr-section {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            background-color: #222;
+            border: 2px solid #ffcc00;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        #thankyou {
+            display: none;
+            margin-top: 20px;
+            background-color: #228B22;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9em;
+        }
+
+        a {
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Diamond Top-up</h1>
+    
+    <!-- UID Input Section -->
+    <div class="form-group">
+        <label for="uid">Enter your Free Fire UID:</label>
+        <input type="text" id="uid" placeholder="Enter your Free Fire UID">
+    </div>
+
+    <!-- Package Selection Section -->
+    <div class="form-group">
+        <label>Choose a package:</label>
+        <input type="radio" id="package1" name="package" value="50"> ₹50 for 100 Diamonds<br>
+        <input type="radio" id="package2" name="package" value="100"> ₹100 for 200 Diamonds
+    </div>
+
+    <!-- Proceed to Payment Button -->
+    <button class="btn" id="submit">Proceed to Payment</button>
+
+    <!-- QR Code Section -->
+    <div id="qr-section">
+        <h3>Scan the Paytm QR code below to complete your payment:</h3>
+        <img src="file:///C:/Users/lenovo/Downloads/diamond%20topup%20site/Img_2024_10_17_16_48_17.jpeg" alt="Paytm QR Code">
+    </div>
+
+    <!-- Thank You Message Section -->
+    <div id="thankyou">
+        <h3>Thank you for your payment!</h3>
+        <p>You will receive your diamonds within 48 hours.</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    For inquiries, contact us at <a href="mailto:support@example.com">support@example.com</a>
+</footer>
+
+<script>
+    document.getElementById('submit').addEventListener('click', function() {
+        const uid = document.getElementById('uid').value;
+        const package1 = document.getElementById('package1').checked;
+        const package2 = document.getElementById('package2').checked;
+
+        if (!uid) {
+            alert("Please enter your Free Fire UID.");
+            return;
+        }
+
+        let amount = 0;
+        if (package1) amount = 50;
+        if (package2) amount = 100;
+
+        if (amount === 0) {
+            alert("Please select a package.");
+            return;
+        }
+
+        // Show QR code section
+        document.getElementById('qr-section').style.display = 'block';
+        document.getElementById('thankyou').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
